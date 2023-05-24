@@ -42,14 +42,13 @@ class Raad:
             self.uitkomst_label.config(text="Jammer. Je hebt het woord niet geraden!")
 
 
+    def run(self):
+        self.uitkomst_label = tk.Label(self.main, text="")
+        self.uitkomst_label.pack()
+        self.main.mainloop()              
 
 
-woord = Raad()
-
-geraden = input ("Doe een gok ")
-uitslag = woord.validate_input(geraden)
-if uitslag:
-    print("Je hebt het woord geraden :)")
-else:
-    print("Jammer. Je hebt het woord niet geraden!")
+window = tk.Tk()
+woord = Raad(window)
+woord.run()
 
