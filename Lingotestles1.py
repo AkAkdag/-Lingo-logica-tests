@@ -27,6 +27,12 @@ class Raad:
         self.letter_label = tk.Label(main, text="")
         self.letter_label.pack() 
 
+        self.uitkomst_label = tk.Label(self.main, text="")
+        self.uitkomst_label.pack()
+        
+        self.herstarten_label= tk.Button(self.main, text="Herstarten", command= self.reset_spel)
+        self.herstarten_label.pack()
+
 #  Door  validate_input functie letters van een meegegeven woord wordt vergeleken met het te raden woord.
     def validate_input(self, input_woord):
         if len (input_woord) != 6:
@@ -39,7 +45,8 @@ class Raad:
         else:
             return False    
         
-  
+
+
 
 # Hier maken we een functie die spelen heet en geven we self als een parameter self verwijst naar het object (de instantie van de klasse (Raad)) waaraan de methode wordt opgeroepen. 
 # Als je wil je kan ook een andere naam geven in plaats van "self"
@@ -48,14 +55,15 @@ class Raad:
         uitslag = self.validate_input(geraden)
         self.beurten += 1
         if uitslag:
-            self.uitkomst_label.config(text="Je hebt het woord geraden. :)") 
+            self.uitkomst_label.config(text="Je hebt het woord geraden. :)")
         else:
-            if self.beurten >=5:
-                self.uitkomst_label.config(text="Je hebt het woord niet geraden.Het juiste woord was 'perzik'")
-                self.beurten = 0   
+            if self.beurten >= 5:
+                self.uitkomst_label.config(text="Je hebt het woord niet geraden. Het juiste woord was 'perzik'")
+                self.beurten = 0
             else:
-                self.uitkomst_label.config(text="Jammer. Je hebt het woord niet geraden!")   
-
+                melding = self.geef_melding(geraden)
+                self.uitkomst_label.config(text="Jammer. Je hebt het woord niet geraden! " + melding)
+            
 
 
     def reset_spel(self):
@@ -66,14 +74,20 @@ class Raad:
 # Hier maken we een functie die uitvoer heet en geven we self als een parameter self verwijst naar het object (de instantie van de klasse (Raad)) waaraan de methode wordt opgeroepen. 
 # Hier verbinden we attribuut (uitkomt) van vorige functie met behulp van self parameter 
     def uitvoer(self):
-        self.uitkomst_label = tk.Label(self.main, text="")
-        self.uitkomst_label.pack()
-        
-        self.herstarten_label= tk.Button(self.main, text="Herstarten", command= self.reset_spel)
-        self.herstarten_label.pack()
+        self.main.mainloop()
         
 
-        self.main.mainloop()              
+    def geef_melding(self, input_woord):
+            melding = ""
+            for i in range(len(self.woord)):
+                if input_woord[i] == self.woord[i]:
+                    melding += input_woord[i].lower()
+                elif input_woord[i] in self.woord:
+                    melding += input_woord[i].upper()
+                else:
+                    melding += "_"
+            
+            return melding             
 
         
 # Hier noemen we de klasse en functies zodat het programma wordt gestart
