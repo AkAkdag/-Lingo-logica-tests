@@ -79,7 +79,8 @@ class Raad:
     def uitvoer(self):
         self.main.mainloop()
         
-
+# Hier maken we een functie die geef_melding heet en geven we self en input_woord als een parameter self verwijst naar het object (de instantie van de klasse (Raad))  waaraan de methode wordt opgeroepen. 
+# Hier bepaal je welke letters in goede plek staan, als de gebruiker goede letters invoerd.
     def geef_melding(self, input_woord):
             melding = ""
             for i in range(len(self.woord)):
