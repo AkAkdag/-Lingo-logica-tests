@@ -33,6 +33,8 @@ class Raad:
         self.herstarten_label= tk.Button(self.main, text="Herstarten", command= self.reset_spel)
         self.herstarten_label.pack()
 
+        
+
 #  Door  validate_input functie letters van een meegegeven woord wordt vergeleken met het te raden woord.
     def validate_input(self, input_woord):
         if len (input_woord) != 6:
@@ -55,17 +57,18 @@ class Raad:
         uitslag = self.validate_input(geraden)
         self.beurten += 1
         if uitslag:
-            self.uitkomst_label.config(text="Je hebt het woord geraden. :)")
+            self.uitkomst_label.config(text="Je hebt het woord geraden.")
         else:
             if self.beurten >= 5:
-                self.uitkomst_label.config(text="Je hebt het woord niet geraden. Het juiste woord was 'perzik'")
+                self.uitkomst_label.config(text="Je hebt al je 5 pogingen gehad. Het juiste woord was 'perzik'")
                 self.beurten = 0
             else:
                 melding = self.geef_melding(geraden)
                 self.uitkomst_label.config(text="Jammer. Je hebt het woord niet geraden! " + melding)
             
 
-
+# Hier maken we een functie die reset_spel heet en geven we self als een parameter self verwijst naar het object (de instantie van de klasse (Raad)) waaraan de methode wordt opgeroepen.
+# paramater self wordt gecombineerd met variabele beurten om pogigingen aan te geven als speler als 5 pogingen heeft gehad. 
     def reset_spel(self):
         self.beurten = 0
         self.uitkomst_label.config(text="")
