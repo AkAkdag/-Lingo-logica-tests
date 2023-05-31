@@ -3,8 +3,13 @@ class Lingo:
 
     def __init__(self):
         self.woord = str.lower("Lingo")
+        self.beurt = 1
 
     def validate_input(self, invoer):
+        
+        # Verhoog de beurt
+        self.beurt += 1
+
         # Converteer de invoer naar kleine letters
         invoer = str.lower(invoer)   
 
