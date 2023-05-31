@@ -1,6 +1,32 @@
 from tkinter import *
 from lingo import Lingo
 
+
+# Lingo object
+lingo = Lingo()
+
+
+invoervelden = {}  
+# Valideer de invoer, event listener
+def validate(event):
+    print("beurt: " + str(lingo.beurt))
+    print("woord: " + lingo.woord)
+    
+    invoer = invoervelden[lingo.beurt-1].get() 
+    print("ingevoerd: " + invoer)
+
+    uitvoer = lingo.validate_input(invoer)
+    print("resultaat: " + uitvoer)
+
+    # Toon de uitvoer
+    invoervelden[lingo.beurt-2].insert(END, " > " + uitvoer)
+
+    # Update de status
+    status_label.config(text = uitvoer)
+
+    #Update beurten 
+    beurten_label.config(text = str(lingo.beurt) + "/5")
+
 # Main
 app = Tk()
 app.title("Lingo!")
@@ -27,7 +53,9 @@ beurten_label.pack()
 for r in range(5):
     invoerveld = Entry(app, bg= 'blue', justify= LEFT, font=("Arial", 24, "bold"), fg='white')
     invoerveld.pack()
-    invoerveld.bind('<Return>'), validate  #Video: 5:35
+    invoervelden[r] = invoerveld
+    invoerveld.bind('<Return>', validate)
+  
 
 # Run
 app.mainloop()
