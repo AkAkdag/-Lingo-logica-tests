@@ -6,6 +6,9 @@ from lingo import Lingo
 lingo = Lingo()
 
 
+
+
+
 invoervelden = {}  
 # Valideer de invoer, event listener
 def validate(event):
@@ -26,6 +29,7 @@ def validate(event):
 
     #Update beurten 
     beurten_label.config(text = str(lingo.beurt) + "/5")
+
 
 # Main
 app = Tk()
