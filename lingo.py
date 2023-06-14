@@ -1,13 +1,14 @@
 import sqlite3
 from highscores import Highscores
-from timer import Timer
+
+
 
 class Lingo:
 
     def __init__(self):
         self.woord = str.lower(self.set_woord())
         self.beurt = 1
-        self.timer = Timer()
+        
 
 
     def set_woord(self):
@@ -43,10 +44,6 @@ class Lingo:
         if len(invoer) != 5:
             return "Voer een woord in van 5 letters"
         
-
-        self.timer.stop()  
-
-
         # Vergelijk elke letter van de invoerstring met het te raden woord
         uitvoer = ""
         for i in range(5):
@@ -64,9 +61,7 @@ class Lingo:
                 uitvoer += "_"   
 
         
-        verlopen_tijd = self.timer.elapsed_time()  # Get the elapsed time
-        if verlopen_tijd is not None:
-            print("Verlopen tijd:", verlopen_tijd)
+    
 
         return uitvoer          
         # Geef de string terug
