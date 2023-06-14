@@ -11,4 +11,5 @@ cursor = connection.cursor()
 cursor.execute("DROP TABEL highscores; ")
 connection.close()
 
-# Video 8:30
+# Video 8:33
+# hey hey
