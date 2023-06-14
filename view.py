@@ -8,6 +8,9 @@ lingo = Lingo()
 
 
 
+
+
+
 # Lijst met invoervelden
 invoervelden = {}
 
@@ -32,6 +35,10 @@ def validate(event):
     #Update beurten 
     beurten_label.config(text = str(lingo.beurt) + "/5")
 
+    if lingo.beurt == 1:
+        lingo.start_timer()
+
+
 
 # Main
 app = Tk()
@@ -39,9 +46,15 @@ app.title("Lingo!")
 app.geometry("300x400")
 app.resizable(False, False)
 
+
+
+
 # Titel
 titel_label = Label(app, text = "Welkom bij Lingo!", font=("Arial", 18, "bold"))
 titel_label.pack()
+
+
+
 
 # Uitleg
 inro_label = Label(app, text = "Raad het woord van vijf letters in vijf beurten")

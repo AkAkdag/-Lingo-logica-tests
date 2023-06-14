@@ -8,7 +8,7 @@ class Lingo:
     def __init__(self):
         self.woord = str.lower(self.set_woord())
         self.beurt = 1
-        
+       
 
 
     def set_woord(self):
@@ -37,8 +37,11 @@ class Lingo:
             score = Highscores()
             score.add_score(naam, self.beurt)
 
+            
+
             # Retourneer de feedback
             return "Gewonnen"    
+
         
         # Controleer of het woord 5 letters heeft
         if len(invoer) != 5:
@@ -58,11 +61,7 @@ class Lingo:
             elif invoer[i] in self.woord:    
                 uitvoer += invoer[i]
             else:
-                uitvoer += "_"   
-
+                uitvoer += "_"      
+            
         
-    
-
-        return uitvoer          
-        # Geef de string terug
-        return "OK"
+            return uitvoer           
