@@ -8,8 +8,6 @@ scores = Highscores()
 
 connection = sqlite3.connect('lingo.sqlite3')
 cursor = connection.cursor()
-cursor.execute("DROP TABEL highscores; ")
+cursor.execute("DROP TABLE highscores; ")
 connection.close()
 
-# Video 8:33
-# hey hey
