@@ -15,3 +15,13 @@ class Highscores:
             score INTEGER NOT NULL
             );""")
         connection.close()
+
+    # Functie om score toe te voegen aan de database
+    def add_score(self, name, score):
+        print("Add score") 
+        connection = sqlite3.connect('lingo.sqlite3')
+        cursor = connection.cursor()
+        query = "INSERT INTO highscores (name, score) VALUES (?, ?)"
+        cursor.execute(query, (name, score))
+        connection.commit()   
+        connection.close()
