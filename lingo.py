@@ -1,11 +1,11 @@
 
 import sqlite3
-
+from highscores import Highscores
 
 class Lingo:
 
     def __init__(self):
-        self.woord = self.set_woord()
+        self.woord = str.lower(self.set_woord())
         self.beurt = 1
 
 
@@ -21,7 +21,7 @@ class Lingo:
 
 
 
-    def validate_input(self, invoer):
+    def validate_input(self, invoer, naam):
         
         # Verhoog de beurt
         self.beurt += 1
@@ -29,8 +29,13 @@ class Lingo:
         # Converteer de invoer naar kleine letters
         invoer = str.lower(invoer)   
 
-        # Controleer of de invoerstring gelijk is aan het te raden woord
+        # Controleer of de invoer string gelijk is aan het te raden woord
         if invoer == self.woord:
+            # Voeg de score toe aan de database
+            score = Highscores()
+            score.add_score(naam, self.beurt)
+
+            # Retourneer de feedback
             return "Gewonnen"    
         
         # Controleer of het woord 5 letters heeft

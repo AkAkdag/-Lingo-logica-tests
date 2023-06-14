@@ -5,9 +5,8 @@ import sqlite3
 
 scores = Highscores()
 
+# Test het toevoegen van een score
 
-connection = sqlite3.connect('lingo.sqlite3')
-cursor = connection.cursor()
-cursor.execute("DROP TABLE highscores; ")
-connection.close()
+scores.add_score("Laura", 100)
+
 

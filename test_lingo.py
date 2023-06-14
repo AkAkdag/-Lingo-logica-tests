@@ -2,6 +2,15 @@ from lingo import Lingo
 # Maak een instantie van lingo
 mijnLingo = Lingo()
 
+
+# Test het woord uit de database
+uitvoer = mijnLingo.woord   
+if (len(uitvoer) == 5):
+    print("TEST OK! - Er is een woord van 5 letters geselecteerd: " + uitvoer)
+else:
+    print("FAIL: Er is geen woord geselecteerd" + uitvoer)
+print('')        
+
 # Controleer het woord
 print(mijnLingo.validate_input("lingo"))
 

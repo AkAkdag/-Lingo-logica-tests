@@ -8,8 +8,10 @@ lingo = Lingo()
 
 
 
+# Lijst met invoervelden
+invoervelden = {}
 
-invoervelden = {}  
+
 # Valideer de invoer, event listener
 def validate(event):
     print("beurt: " + str(lingo.beurt))
@@ -18,7 +20,7 @@ def validate(event):
     invoer = invoervelden[lingo.beurt-1].get() 
     print("ingevoerd: " + invoer)
 
-    uitvoer = lingo.validate_input(invoer)
+    uitvoer = lingo.validate_input(invoer, naam_veld.get())
     print("resultaat: " + uitvoer)
 
     # Toon de uitvoer
@@ -44,6 +46,11 @@ titel_label.pack()
 # Uitleg
 inro_label = Label(app, text = "Raad het woord van vijf letters in vijf beurten")
 inro_label.pack()
+
+# Naam van de speler
+naam_veld = Entry(app)
+naam_veld.pack()
+
 
 # Status
 status_label = Label(app, text = "Succes", font=("Arial", 14, "bold"), fg = 'red')
