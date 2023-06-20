@@ -6,7 +6,7 @@ from highscores import Highscores
 class Lingo:
 
     def __init__(self):
-        self.woord = str.lower(self.set_woord())
+        self.woord = (self.set_woord())
         self.beurt = 1
        
 
@@ -64,4 +64,6 @@ class Lingo:
                 uitvoer += "_"      
             
         
-            return uitvoer           
+    
+    
+        return uitvoer              

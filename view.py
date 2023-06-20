@@ -31,6 +31,7 @@ def validate(event):
     # Beurten bijwerken
     beurten_label.config(text=str(lingo.beurt) + "/5")
 
+    # Timer starten, resetten en stop zetten.
     if lingo.beurt == 1:
         timer.reset() 
         timer.start()  
